@@ -32,8 +32,9 @@ export default function App() {
     formData.append("file", file)
 
     try {
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"
       const res = await axios.post(
-        "http://localhost:8000/api/detect",
+        `${API_URL}/api/detect`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       )
