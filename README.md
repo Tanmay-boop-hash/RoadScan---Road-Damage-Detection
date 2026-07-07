@@ -2,7 +2,7 @@
 
 A full-stack road damage detection system using YOLOv8 fine-tuned on the RDD2022 India dataset. Upload a road image to detect and classify surface damage by type and severity in real time.
 
-**Live Demo:** [your-vercel-url]
+**Live Demo:**  [RoadScan - Road Damage Detection](https://road-scan-road-damage-detection.vercel.app)
 
 ---
 
