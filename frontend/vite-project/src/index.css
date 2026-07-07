@@ -87,7 +87,7 @@ body {
 /* ── Report panel ── */
 .result-report-col { display: flex; flex-direction: column; gap: 20px; }
 
-.report-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #444; }
+.report-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #928f8f; }
 
 .summary-row { display: flex; gap: 10px; }
 .summary-card {
@@ -99,9 +99,9 @@ body {
   background: #111;
 }
 .summary-count { display: block; font-size: 1.6rem; font-weight: 600; line-height: 1; }
-.summary-label { display: block; font-size: 0.7rem; color: #555; margin-top: 4px; }
+.summary-label { display: block; font-size: 0.7rem; color: #a9a9a9; margin-top: 4px; }
 
-.total-label { font-size: 0.82rem; color: #555; }
+.total-label { font-size: 0.9rem; color: #9a9a9a; }
 
 .detection-list { display: flex; flex-direction: column; gap: 8px; }
 
@@ -112,15 +112,15 @@ body {
   border-radius: 6px;
   padding: 11px 14px;
 }
-.detection-name { font-size: 0.88rem; color: #ddd; font-weight: 500; }
-.detection-meta { font-size: 0.78rem; color: #555; margin-top: 4px; display: flex; gap: 6px; }
+.detection-name { font-size: 0.94rem; color: #ddd; font-weight: 500; }
+.detection-meta { font-size: 0.78rem; color: #9a9a9a; margin-top: 4px; display: flex; gap: 6px; }
 .detection-dot { color: #333; }
 
 .no-detections { font-size: 0.85rem; color: #444; }
 
 .limitation-note {
-  font-size: 0.72rem;
-  color: #2a2a2a;
+  font-size: 0.8rem;
+  color: #a4a4a4;
   line-height: 1.5;
   border-top: 1px solid #1a1a1a;
   padding-top: 16px;
