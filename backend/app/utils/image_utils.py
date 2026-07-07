@@ -11,12 +11,11 @@ CLASS_NAMES = {
     4: "White Line Blur"
 }
 
-COLORS = {
-    0: (255, 165, 0),   # orange
-    1: (255, 255, 0),   # yellow
-    2: (255, 0, 0),     # red
-    3: (128, 0, 128),   # purple
-    4: (0, 165, 255),   # light blue
+# Colors keyed by severity, not class — matching frontend exactly
+SEVERITY_COLORS = {
+    "Severe":   (68,  68,  255),  # #ff4444 in BGR
+    "Moderate": (0,   170, 255),  # #ffaa00 in BGR
+    "Minor":    (68,  187, 68),   # #44bb44 in BGR
 }
 
 def get_severity(class_id, box_area, confidence):
@@ -41,14 +40,33 @@ def annotate_image(image_bytes, detections):
 
     for det in detections:
         x1, y1, x2, y2 = det["bbox"]
-        class_id = det["class_id"]
         severity = det["severity"]
-        confidence = det["confidence"]
-        color = COLORS.get(class_id, (0,255,0))
+        color = SEVERITY_COLORS[severity]
 
+        # Draw bounding box
         cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
-        label = f"{CLASS_NAMES[class_id]} | {severity} | {confidence: .2f}"
-        cv2.putText(img, label, (x1, max(y1-8, 0)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+
+        # Label with semi-transparent background
+        label = f"{det['class_name']} · {severity}"
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 0.5
+        thickness = 1
+        (tw, th), _ = cv2.getTextSize(label, font, font_scale, thickness)
+
+        # Draw dark background rectangle behind text
+        cv2.rectangle(
+            img,
+            (x1, max(y1 - th - 8, 0)),
+            (x1 + tw + 6, max(y1, th + 8)),
+            (0, 0, 0),
+            -1  # filled
+        )
+        # Draw text on top
+        cv2.putText(
+            img, label,
+            (x1 + 3, max(y1 - 4, th + 4)),
+            font, font_scale, color, thickness
+        )
 
     # convert back to bytes
     _, buffer = cv2.imencode(".jpg", img)

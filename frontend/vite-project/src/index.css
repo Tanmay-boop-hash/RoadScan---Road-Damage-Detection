@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0d0d0d;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/* ── App shell ── */
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.header-left { display: flex; align-items: baseline; gap: 10px; }
+.header-title { font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.header-sub { font-size: 0.85rem; color: #555; }
+
+.btn-reset {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #aaa;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-reset:hover { border-color: #444; color: #fff; }
+
+.main { flex: 1; padding: 48px 32px; max-width: 1080px; margin: 0 auto; width: 100%; }
+
+/* ── Hero ── */
+.hero-text { margin-bottom: 32px; }
+.hero-text h1 { font-size: 1.8rem; font-weight: 600; color: #fff; letter-spacing: -0.03em; margin-bottom: 10px; }
+.hero-text p { font-size: 0.9rem; color: #666; max-width: 1000px; line-height: 1.6; }
+
+.error { color: #ff4444; font-size: 0.85rem; margin-top: 16px; }
+
+/* ── Upload zone ── */
+.upload-zone {
+  border: 1.5px dashed #a70909;
+  border-radius: 10px;
+  padding: 56px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.upload-zone:hover { border-color: #444; }
+.upload-zone--loading { cursor: not-allowed; opacity: 0.6; }
+.upload-zone--compact { padding: 18px; margin-top: 12px; }
+
+.upload-zone__text { font-size: 0.9rem; color: #666; }
+.upload-zone__sub { font-size: 0.78rem; color: #3a3a3a; }
+
+/* ── Result layout ── */
+.result-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .result-layout { grid-template-columns: 1fr; }
+  .main { padding: 24px 16px; }
+}
+
+.result-image-col { display: flex; flex-direction: column; }
+.result-image { width: 100%; border-radius: 8px; display: block; }
+
+/* ── Report panel ── */
+.result-report-col { display: flex; flex-direction: column; gap: 20px; }
+
+.report-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #444; }
+
+.summary-row { display: flex; gap: 10px; }
+.summary-card {
+  flex: 1;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 12px 10px;
+  text-align: center;
+  background: #111;
+}
+.summary-count { display: block; font-size: 1.6rem; font-weight: 600; line-height: 1; }
+.summary-label { display: block; font-size: 0.7rem; color: #555; margin-top: 4px; }
+
+.total-label { font-size: 0.82rem; color: #555; }
+
+.detection-list { display: flex; flex-direction: column; gap: 8px; }
+
+.detection-card {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-left: 3px solid;
+  border-radius: 6px;
+  padding: 11px 14px;
+}
+.detection-name { font-size: 0.88rem; color: #ddd; font-weight: 500; }
+.detection-meta { font-size: 0.78rem; color: #555; margin-top: 4px; display: flex; gap: 6px; }
+.detection-dot { color: #333; }
+
+.no-detections { font-size: 0.85rem; color: #444; }
+
+.limitation-note {
+  font-size: 0.72rem;
+  color: #2a2a2a;
+  line-height: 1.5;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 16px;
+  margin-top: auto;
+}
