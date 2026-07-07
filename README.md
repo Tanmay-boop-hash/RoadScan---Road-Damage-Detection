@@ -32,10 +32,10 @@ Annotated image + structured JSON report
 
 ## Tech Stack
 
-**Backend:** Python, FastAPI, YOLOv8 (Ultralytics), OpenCV, Docker
-**Frontend:** React, TypeScript, Vite, Axios
-**ML:** YOLOv8s fine-tuned on RDD2022 India subset (5,368 labeled images, 30 epochs, Google Colab T4 GPU)
-**Deploy:** Render (backend), Vercel (frontend)
+- **Backend:** Python, FastAPI, YOLOv8 (Ultralytics), OpenCV, Docker
+- **Frontend:** React, TypeScript, Vite, Axios
+- **ML:** YOLOv8s fine-tuned on RDD2022 India subset (5,368 labeled images, 30 epochs, Google Colab T4 GPU)
+- **Deploy:** Render (backend), Vercel (frontend)
 
 ## Model Performance
 
